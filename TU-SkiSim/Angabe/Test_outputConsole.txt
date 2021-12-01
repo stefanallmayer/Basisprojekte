@@ -1,0 +1,153 @@
+8 Uhr: Auslastung der Strecken
+Strecke 01: 0,00 % Auslastung
+Strecke 02: 0,00 % Auslastung
+Strecke 03: 0,00 % Auslastung
+Strecke 04: 0,00 % Auslastung
+Strecke 05: 0,00 % Auslastung
+
+8,5 Uhr: Auslastung der Strecken
+Strecke 01: 4,00 % Auslastung
+Strecke 02: 0,00 % Auslastung
+Strecke 03: 0,00 % Auslastung
+Strecke 04: 0,00 % Auslastung
+Strecke 05: 0,00 % Auslastung
+
+9 Uhr: Auslastung der Strecken
+Strecke 01: 4,00 % Auslastung
+Strecke 02: 0,00 % Auslastung
+Strecke 03: 0,00 % Auslastung
+Strecke 04: 0,00 % Auslastung
+Strecke 05: 0,00 % Auslastung
+
+9,5 Uhr: Auslastung der Strecken
+Strecke 01: 10,00 % Auslastung
+Strecke 02: 0,00 % Auslastung
+Strecke 03: 0,00 % Auslastung
+Strecke 04: 0,00 % Auslastung
+Strecke 05: 0,00 % Auslastung
+
+10 Uhr: Auslastung der Strecken
+Strecke 01: 12,00 % Auslastung
+Strecke 02: 0,00 % Auslastung
+Strecke 03: 0,00 % Auslastung
+Strecke 04: 0,00 % Auslastung
+Strecke 05: 0,00 % Auslastung
+
+10,5 Uhr: Auslastung der Strecken
+Strecke 01: 14,00 % Auslastung
+Strecke 02: 0,00 % Auslastung
+Strecke 03: 0,00 % Auslastung
+Strecke 04: 0,00 % Auslastung
+Strecke 05: 0,00 % Auslastung
+
+11 Uhr: Auslastung der Strecken
+Strecke 01: 16,00 % Auslastung
+Strecke 02: 0,00 % Auslastung
+Strecke 03: 0,00 % Auslastung
+Strecke 04: 0,00 % Auslastung
+Strecke 05: 0,00 % Auslastung
+
+11,5 Uhr: Auslastung der Strecken
+Strecke 01: 14,00 % Auslastung
+Strecke 02: 0,00 % Auslastung
+Strecke 03: 0,00 % Auslastung
+Strecke 04: 0,00 % Auslastung
+Strecke 05: 0,00 % Auslastung
+
+12 Uhr: Auslastung der Strecken
+Strecke 01: 15,00 % Auslastung
+Strecke 02: 0,00 % Auslastung
+Strecke 03: 0,00 % Auslastung
+Strecke 04: 0,00 % Auslastung
+Strecke 05: 0,00 % Auslastung
+
+12,5 Uhr: Auslastung der Strecken
+Strecke 01: 8,00 % Auslastung
+Strecke 02: 0,00 % Auslastung
+Strecke 03: 0,00 % Auslastung
+Strecke 04: 0,00 % Auslastung
+Strecke 05: 0,00 % Auslastung
+
+13 Uhr: Auslastung der Strecken
+Strecke 01: 11,00 % Auslastung
+Strecke 02: 0,00 % Auslastung
+Strecke 03: 0,00 % Auslastung
+Strecke 04: 0,00 % Auslastung
+Strecke 05: 0,00 % Auslastung
+
+13,5 Uhr: Auslastung der Strecken
+Strecke 01: 4,00 % Auslastung
+Strecke 02: 0,00 % Auslastung
+Strecke 03: 0,00 % Auslastung
+Strecke 04: 0,00 % Auslastung
+Strecke 05: 0,00 % Auslastung
+
+14 Uhr: Auslastung der Strecken
+Strecke 01: 8,00 % Auslastung
+Strecke 02: 0,00 % Auslastung
+Strecke 03: 0,00 % Auslastung
+Strecke 04: 0,00 % Auslastung
+Strecke 05: 0,00 % Auslastung
+
+14,5 Uhr: Auslastung der Strecken
+Strecke 01: 2,00 % Auslastung
+Strecke 02: 0,00 % Auslastung
+Strecke 03: 0,00 % Auslastung
+Strecke 04: 0,00 % Auslastung
+Strecke 05: 0,00 % Auslastung
+
+15 Uhr: Auslastung der Strecken
+Strecke 01: 6,00 % Auslastung
+Strecke 02: 0,00 % Auslastung
+Strecke 03: 0,00 % Auslastung
+Strecke 04: 0,00 % Auslastung
+Strecke 05: 0,00 % Auslastung
+
+15,5 Uhr: Auslastung der Strecken
+Strecke 01: 5,00 % Auslastung
+Strecke 02: 0,00 % Auslastung
+Strecke 03: 0,00 % Auslastung
+Strecke 04: 0,00 % Auslastung
+Strecke 05: 0,00 % Auslastung
+
+16 Uhr: Auslastung der Strecken
+Strecke 01: 7,00 % Auslastung
+Strecke 02: 0,00 % Auslastung
+Strecke 03: 0,00 % Auslastung
+Strecke 04: 0,00 % Auslastung
+Strecke 05: 0,00 % Auslastung
+
+16,5 Uhr: Auslastung der Strecken
+Strecke 01: 4,00 % Auslastung
+Strecke 02: 0,00 % Auslastung
+Strecke 03: 0,00 % Auslastung
+Strecke 04: 0,00 % Auslastung
+Strecke 05: 0,00 % Auslastung
+
+17 Uhr: Auslastung der Strecken
+Strecke 01: 0,00 % Auslastung
+Strecke 02: 0,00 % Auslastung
+Strecke 03: 0,00 % Auslastung
+Strecke 04: 0,00 % Auslastung
+Strecke 05: 0,00 % Auslastung
+
+Nr: 001, Skilllevel: 3, Ankunftszeit: 08:00, Endzeit: 15:48 km: 45
+Nr: 002, Skilllevel: 1, Ankunftszeit: 08:00, Endzeit: 16:40 km: 20
+Nr: 003, Skilllevel: 2, Ankunftszeit: 08:00, Endzeit: 16:00 km: 37
+Nr: 004, Skilllevel: 3, Ankunftszeit: 08:00, Endzeit: 15:48 km: 45
+Nr: 005, Skilllevel: 1, Ankunftszeit: 08:00, Endzeit: 16:40 km: 20
+Nr: 006, Skilllevel: 2, Ankunftszeit: 08:00, Endzeit: 16:01 km: 37
+Nr: 007, Skilllevel: 2, Ankunftszeit: 08:00, Endzeit: 16:01 km: 37
+Nr: 008, Skilllevel: 1, Ankunftszeit: 09:00, Endzeit: 16:35 km: 17
+Nr: 009, Skilllevel: 2, Ankunftszeit: 09:00, Endzeit: 15:56 km: 32
+Nr: 010, Skilllevel: 2, Ankunftszeit: 09:00, Endzeit: 15:56 km: 32
+Nr: 011, Skilllevel: 3, Ankunftszeit: 09:00, Endzeit: 15:56 km: 40
+Nr: 012, Skilllevel: 2, Ankunftszeit: 09:00, Endzeit: 15:56 km: 32
+Nr: 013, Skilllevel: 3, Ankunftszeit: 09:00, Endzeit: 15:57 km: 40
+Nr: 014, Skilllevel: 1, Ankunftszeit: 09:00, Endzeit: 16:36 km: 17
+Nr: 015, Skilllevel: 1, Ankunftszeit: 09:00, Endzeit: 16:36 km: 17
+Nr: 016, Skilllevel: 2, Ankunftszeit: 09:00, Endzeit: 15:57 km: 32
+Nr: 017, Skilllevel: 2, Ankunftszeit: 10:00, Endzeit: 15:52 km: 27
+Nr: 018, Skilllevel: 2, Ankunftszeit: 10:00, Endzeit: 15:52 km: 27
+Nr: 019, Skilllevel: 3, Ankunftszeit: 10:00, Endzeit: 16:04 km: 35
+Nr: 020, Skilllevel: 2, Ankunftszeit: 10:00, Endzeit: 15:52 km: 27
