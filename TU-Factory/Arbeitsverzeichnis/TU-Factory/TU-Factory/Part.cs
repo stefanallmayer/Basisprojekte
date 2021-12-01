@@ -12,64 +12,76 @@ namespace TU_Factory
         private int currentYPosition;
         private int id;
         private int prio;
-        private double quality;
-        private int state;
-        private static int staticID;
+        private double quality=1;
+        private state state= state.Halbzeug;
+        private static int staticID = 1;
         private List<WorkingStep> workInstruction;
 
         public Part(List<WorkingStep> workInstrucions, int Prio)
         {
-            throw new System.NotImplementedException();
+            this.workInstruction = workInstrucions;
+            this.prio = Prio;
+            this.id = staticID;
+            staticID++;
         }
 
         public void deleteMachineStep()
         {
-            throw new System.NotImplementedException();
+            workInstruction.Remove(workInstruction.FirstOrDefault());
         }
 
         public string getNextMachiningMachineType()
         {
-            throw new System.NotImplementedException();
+            return workInstruction.FirstOrDefault().getMachineType();
         }
 
         public double getNextMachiningVolume()
         {
-            throw new System.NotImplementedException();
+            return workInstruction.FirstOrDefault().getVolume();
         }
 
         public int getNumberOfOpenOperations()
         {
-            throw new System.NotImplementedException();
+            return workInstruction.Count();
         }
 
         public double getQuality()
         {
-            throw new System.NotImplementedException();
+            return quality;
         }
 
         public void setCurrentMachine(Machine M)
         {
-            throw new System.NotImplementedException();
+            currentMachine = M;
         }
 
         public void setPartFree()
         {
-            throw new System.NotImplementedException();
+            currentMachine = null;
         }
 
         public void setQuality(double newQuality)
         {
-            throw new System.NotImplementedException();
+            quality = newQuality;
         }
 
-        public void setState(int newState)
+        public void setState(state newState)
         {
-            throw new System.NotImplementedException();
+            state = newState;
         }
 
         public override string ToString()
         {
-            throw new System.NotImplementedException();
+            return $"Part: {id}, Status: {state}";
         }
+    }
+
+    public enum state:int
+    {
+        Halbzeug = 1,
+        aktiveBearbeitung = 2, 
+        FertigesTeil = 3,
+        QualityGOOD = 4,
+        QualityBAD = 5
     }
 }

@@ -12,24 +12,28 @@ namespace TU_Factory
         private double feed;
         private double turnedVolume;
 
-        public TurningMachine(int ID, int errorProbability, double cuttingSpeed, double cuttingDepth, double feed, int xCoordinate, int yCoordinate)
+        public TurningMachine(int ID, int errorProbability, double cuttingSpeed, double cuttingDepth, double feed, int xCoordinate, int yCoordinate): base(ID, errorProbability, xCoordinate, yCoordinate)
         {
-            throw new System.NotImplementedException();
+            this.cuttingDepth = cuttingDepth;
+            this.feed = feed;
+            this.cuttingSpeed = cuttingSpeed;
+            metalRemovalRate = cuttingSpeed * cuttingDepth * feed * 1000;
+            machineType = "Drehmaschine";
         }
 
         public override double getCalcMachinTime()
         {
-            throw new NotImplementedException();
+            return Math.Ceiling(turnedVolume / metalRemovalRate);
         }
 
         public override void setMachineVolume()
         {
-            throw new NotImplementedException();
+            turnedVolume = currentPart.getNextMachiningVolume();
         }
 
-        public double getInfluenceOnQuality()
+        public override double getInfluenceOnQuality()
         {
-            throw new System.NotImplementedException();
+            return wear / 45;
         }
     }
 }

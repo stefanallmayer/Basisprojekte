@@ -13,19 +13,26 @@ namespace TU_Factory
         private double infeed;
         private double speedRelation;
 
-        public GrindingMachine(int ID, int errorProbability, double infeed, double grindingWidth, double cuttingSpeed, double speedRelation, int xCoordinate, int yCoordinate)
+        public GrindingMachine(int ID, int errorProbability, double infeed, double grindingWidth, double cuttingSpeed, double speedRelation, int xCoordinate, int yCoordinate):base(ID, errorProbability, xCoordinate, yCoordinate)
         {
-            throw new System.NotImplementedException();
+            this.cuttingSpeed = cuttingSpeed;
+            this.grindingWidth = grindingWidth;
+            this.grindingWidth = 50;
+            this.speedRelation = speedRelation;
+            this.infeed = infeed;
+            metalRemovalRate = infeed * grindingWidth * cuttingSpeed / speedRelation;
+            machineType = "Schleifmaschine";
+
         }
 
         public override double getCalcMachinTime()
         {
-            throw new NotImplementedException();
+            return Math.Ceiling(grindingVolume / metalRemovalRate);
         }
 
         public override void setMachineVolume()
         {
-            throw new NotImplementedException();
+            grindingVolume = currentPart.getNextMachiningVolume();
         }
     }
 }

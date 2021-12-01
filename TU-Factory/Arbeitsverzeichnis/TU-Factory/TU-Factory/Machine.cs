@@ -9,10 +9,10 @@ namespace TU_Factory
     {
         private double beginningTimeInUse;
         protected Part currentPart;
-        private double endingTimeInUse;
-        private int errorProbability;
-        private bool inRepair;
-        private bool inUse;
+        private double endingTimeInUse = 0;
+        private int errorProbability = 5;
+        private bool inRepair = false;
+        private bool inUse = false;
         private int machineID;
         protected string machineType;
         protected double metalRemovalRate;
@@ -22,12 +22,15 @@ namespace TU_Factory
 
         public Machine(int ID, int errorProbability, int xCoordinate, int yCoordinate)
         {
-            throw new System.NotImplementedException();
+            this.machineID = ID;
+            this.errorProbability = errorProbability;
+            this.xCoordinate = xCoordinate;
+            this.yCoordinate = yCoordinate;
         }
 
         public void addToEndingTime(int endTime)
         {
-            throw new System.NotImplementedException();
+            endingTimeInUse += endTime;
         }
 
         public abstract double getCalcMachinTime();
@@ -35,57 +38,64 @@ namespace TU_Factory
 
         public Part getCurrentPart()
         {
-            throw new System.NotImplementedException();
+            return currentPart;
         }
 
         public double getEndTime()
         {
-            throw new System.NotImplementedException();
+            return endingTimeInUse;
         }
 
-        public double getInfluenceOnQuality()
+        public virtual double getInfluenceOnQuality()
         {
-            throw new System.NotImplementedException();
+            return 0;
         }
 
         public bool getInRepair()
         {
-            throw new System.NotImplementedException();
+            return inRepair;
         }
 
         public bool getInUse()
         {
-            throw new System.NotImplementedException();
+            return inUse;
         }
 
         public string getMachineType()
         {
-            throw new System.NotImplementedException();
+            return machineType;
         }
 
         public bool possibleError()
         {
-            throw new System.NotImplementedException();
+            Random rnd = new Random();
+            int zufallszahl = rnd.Next(1,100);
+            //if (zufallszahl <= 5)
+            //    return true;
+            /*else*/ if (wear >= 75)
+                return true;
+            else
+                return false;
         }
 
         public void repair()
         {
-            throw new System.NotImplementedException();
+            wear = 0;
         }
 
         public void setCurrentPart(Part P)
         {
-            throw new System.NotImplementedException();
+            currentPart = P;
         }
 
         public void setInRpair(bool b)
         {
-            throw new System.NotImplementedException();
+            inRepair = b;
         }
 
         public void setInUse(bool B)
         {
-            throw new System.NotImplementedException();
+            inUse = B;
         }
 
         public abstract void setMachineVolume();
@@ -93,12 +103,14 @@ namespace TU_Factory
 
         public void setTimeAndCalculateWear(double currentTime, double endTime)
         {
-            throw new System.NotImplementedException();
+            beginningTimeInUse = currentTime;
+            endingTimeInUse = endTime;
+            wear = wear + (endTime - currentTime) / 20;
         }
 
         public override string ToString()
         {
-            throw new System.NotImplementedException();
+            return $"Maschinentyp: {machineType},   ID: {machineID}";
         }
     }
 }

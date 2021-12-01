@@ -12,17 +12,18 @@ namespace TU_Factory
 
         public WorkingStep(string machineType, double volume)
         {
-            throw new System.NotImplementedException();
+            this.machineType = machineType;
+            this.volume = volume;
         }
 
         public string getMachineType()
         {
-            throw new System.NotImplementedException();
+            return machineType;
         }
 
         public double getVolume()
         {
-            throw new System.NotImplementedException();
+            return volume;
         }
     }
 }

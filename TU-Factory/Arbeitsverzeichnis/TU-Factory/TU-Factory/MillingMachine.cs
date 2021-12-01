@@ -10,26 +10,31 @@ namespace TU_Factory
         private double cuttingDepth;
         private double cuttingWidth;
         private double feedingSpeed;
-        private double mikkingVolume;
+        private double millingVolume;
 
-        public MillingMachine(int ID, int errorProbability, double cuttingDepth, double cuttingWidth, double feedingSpeed, int xCoordinate, int yCoordinate)
+        public MillingMachine(int ID, int errorProbability, double cuttingDepth, double cuttingWidth, double feedingSpeed, int xCoordinate, int yCoordinate) : base(ID, errorProbability, xCoordinate, yCoordinate)
         {
-            throw new System.NotImplementedException();
+            this.cuttingDepth = cuttingDepth;
+            this.cuttingWidth = cuttingWidth;
+            this.feedingSpeed = feedingSpeed;
+            metalRemovalRate = cuttingDepth * cuttingWidth * feedingSpeed;
+            machineType = "Fräsmaschine";
+
         }
 
         public override double getCalcMachinTime()
         {
-            throw new NotImplementedException();
+            return Math.Ceiling(millingVolume / metalRemovalRate);
         }
 
         public override void setMachineVolume()
         {
-            throw new NotImplementedException();
+            millingVolume = currentPart.getNextMachiningVolume();
         }
 
-        public double getInfluenceOnQuality()
+        public override double getInfluenceOnQuality()
         {
-            throw new System.NotImplementedException();
+            return wear / 50;
         }
     }
 }
