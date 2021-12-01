@@ -72,7 +72,7 @@ namespace TU_Factory
             int zufallszahl = rnd.Next(1,100);
             //if (zufallszahl <= 5)
             //    return true;
-            /*else*/ if (wear >= 75)
+            /*else*/ if (wear >= 0.75)
                 return true;
             else
                 return false;

@@ -40,11 +40,11 @@ namespace TU_Factory
                 if (P.getNumberOfOpenOperations() == 0)
                 {
                     P.setState(state.FertigesTeil);
-                    finishedParts.Add(P);
+                    
                     tempFinishedParts.Add(P);
                 }
             }
-
+            finishedParts.AddRange(tempFinishedParts);
             foreach (Part P in tempFinishedParts)
             {
                 openParts.Remove(P);
@@ -57,12 +57,12 @@ namespace TU_Factory
                 {
                     if (!m.getInUse() && m.getMachineType() == p.getNextMachiningMachineType())
                     {
-                        Part currentPart = m.getCurrentPart();
+                        
 
                         m.setInUse(true);
                         m.setCurrentPart(p);
                         m.setMachineVolume();
-                        m.setTimeAndCalculateWear(currentTime, (m.getCalcMachinTime() + currentTime));
+                        m.setTimeAndCalculateWear(currentTime, m.getCalcMachinTime() + currentTime);
                         p.setState(state.aktiveBearbeitung);
                         p.setCurrentMachine(m);
                         p.setQuality(p.getQuality() - p.getQuality() * m.getInfluenceOnQuality());
@@ -80,8 +80,9 @@ namespace TU_Factory
                     m.setInUse(false);
                     if (m.getCurrentPart() != null)
                     {
-                        m.getCurrentPart().setPartFree();
-                        m.getCurrentPart().deleteMachineStep();
+                        Part currentPart = m.getCurrentPart();
+                        currentPart.setPartFree();
+                        currentPart.deleteMachineStep();
                         m.setCurrentPart(null);
                         Console.WriteLine($"{m} ist jetzt wieder frei und bereit zum Bearbeiten neuer Teile.");
                     }
