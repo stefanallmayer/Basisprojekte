@@ -28,23 +28,15 @@ namespace TU_SkiSim
             List<Skier> allSkiers = new List<Skier>();
             allSkiers = GetTicketList();
 
-            Console.BufferHeight = Int16.MaxValue - 20000;
-            var logger = new Logger();
-            Simulation Test = new Simulation(allLifts, allSkiers,alleHuetten,allTracks, logger);
+            Console.BufferHeight = Int16.MaxValue - 20000;            
+            Simulation Test = new Simulation(allLifts, allSkiers,alleHuetten,allTracks);
             Test.simulate(8,17);
 
             foreach (Skier s in allSkiers)
             {
                 Console.WriteLine($@"{s}    gefahrene Kilometer: {s.getUsedTracks().Sum(q => q.getLength())/1000}");                
-            }
+            }        
 
-            
-
-            
-            
-            
-
-            //logger.WriteToFile(@"C:\Users\Steve\Documents\uni\3. Semester\Ing. Inf. II\Basisprojekte Stefan\Neuer Ordner\Logger.txt");
             Console.ReadLine();
         }
         static List<Skier> GetTicketList()
@@ -68,7 +60,7 @@ namespace TU_SkiSim
                         skierList.Add(new Expert(int.Parse(skiffahrerArray[0]), int.Parse(skiffahrerArray[1])*60));
                         break;
                     default:
-                        Console.WriteLine("Error 69! Unbekanntes Skilllevel in der Liste");
+                        Console.WriteLine("Error 404! Skilllevel not found");
                         break;
                 }
             }        

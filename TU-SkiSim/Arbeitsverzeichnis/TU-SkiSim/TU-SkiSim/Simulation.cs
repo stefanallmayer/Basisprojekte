@@ -12,14 +12,13 @@ namespace TU_SkiSim
         private List<Track> addedTracks;
         private bool status;
 
-        private readonly Logger logger;
+        
 
-        public Simulation(List<Lift> lifte, List<Skier> schifahrer, List<Hut> huetten, List<Track> strecken, Logger logger = null)
+        public Simulation(List<Lift> lifte, List<Skier> schifahrer, List<Hut> huetten, List<Track> strecken)
         {
             this.addedLifts = lifte;
             this.addedSkier = schifahrer;
-            this.addedTracks = strecken;
-            this.logger = logger;
+            this.addedTracks = strecken;            
         }
 
         public List<Lift> getLifts()
@@ -44,9 +43,7 @@ namespace TU_SkiSim
             status = false;
             int Zeit = startzeit;
             while (Zeit <= endzeit)
-            {
-               if (Zeit >= endzeit-90)
-                { }
+            {               
                 int anzahlSkifahrer = addedSkier.Count();
                 foreach (Skier n in addedSkier)
                 {
@@ -56,10 +53,10 @@ namespace TU_SkiSim
                     {
                         switch (n.getStatus())
                         {
-                            case Status.vorLift:
+                            case Status.vorLift:        //4.1
                                 enterResort(n);
                                 break;
-                            case Status.inLift:
+                            case Status.inLift:         //4.2
                                 skierOnLift(n, Zeit, endzeit);
                                 break;
                             default:
@@ -70,16 +67,12 @@ namespace TU_SkiSim
                     }
                     else if (n.getStatus() == Status.leftResort && n.getTimeToNextStep() == 0 && n.getLeavingTime() == Zeit)
                     {
-                        n.setLeavingTime(Zeit);
-                        logger?.AppendTask("Skigebiet verlassen");
-                    }
-                    else
-                    {
-                        logger?.AppendTask("keine Aktion");
+                        n.setLeavingTime(Zeit);                       
                     }
                    
+                   
                     n.countDownTime();                   
-                    logger?.Log(Zeit, n);
+                    
                 }
                 foreach (Lift lift in addedLifts)
                 {
@@ -122,8 +115,6 @@ namespace TU_SkiSim
             { 
                 lift1.addQueue();
                 skifahrer.setWaitingNumber(lift1.getWaitingQueue());
-
-                logger?.AppendTask($"4.1 Wartenr: {skifahrer.getWaitingNumber()}");
             }   
             
             if (lift1.calcFlowRate()>= skifahrer.getWaitingNumber())
@@ -131,13 +122,11 @@ namespace TU_SkiSim
                 skifahrer.setUsedLift(lift1);
                 skifahrer.setStatus(Status.inLift);
                 skifahrer.setTimeToNextStep(lift1.getTravelTime());
-                skifahrer.setWaitingNumber(0);
-                logger?.AppendTask($"4.1.1 Lift wählen: {lift1}");
+                skifahrer.setWaitingNumber(0);                
             }
             else
             {
-                skifahrer.setWaitingNumber(skifahrer.getWaitingNumber() - lift1.calcFlowRate());
-                logger?.AppendTask($"4.1.2 Wartenummer reduzieren zu: {skifahrer.getWaitingNumber()}");
+                skifahrer.setWaitingNumber(skifahrer.getWaitingNumber() - lift1.calcFlowRate());                
             }
         }
         
@@ -153,8 +142,7 @@ namespace TU_SkiSim
                 skifahrer.setUsedTrack(nextTrack);
                 nextTrack.changePeopleOnTheTrack(nextTrack.getPeopleOnTheTrack() + 1);
                 skifahrer.setStatus(Status.inTrack);
-                skifahrer.setTimeToNextStep(skifahrer.calculateNeededTime(nextTrack));
-                logger?.AppendTask($"4.2 nächste Strecke Track: {nextTrack.getNumber()}");
+                skifahrer.setTimeToNextStep(skifahrer.calculateNeededTime(nextTrack));               
 
                 //if (nextTrack.getHut() != null)
                 //{
@@ -175,8 +163,7 @@ namespace TU_SkiSim
                 skifahrer.setUsedTrack(nextTrack);
                 nextTrack.changePeopleOnTheTrack(nextTrack.getPeopleOnTheTrack() + 1);
                 skifahrer.setTimeToNextStep(abfahrtszeit);
-                skifahrer.setLeavingTime(zeit + abfahrtszeit);
-                logger?.AppendTask("6. letzte Abfahrt ");
+                skifahrer.setLeavingTime(zeit + abfahrtszeit);                
             }
         }
        
@@ -193,11 +180,8 @@ namespace TU_SkiSim
             {
                 nextlift.addQueue();
                 skifahrer.setWaitingNumber(nextlift.getWaitingQueue());
-            }
-                       
+            }                      
             
-            
-            logger?.AppendTask($"4.4 nächsten Lift wählen Track: {lastTrack.getNumber()} Wartenr: {skifahrer.getWaitingNumber()}");
 
             if ((nextlift.calcFlowRate() >= skifahrer.getWaitingNumber()))
             {
@@ -205,8 +189,7 @@ namespace TU_SkiSim
                 skifahrer.setUsedLift(nextlift);
                 skifahrer.setTimeToNextStep(nextlift.getTravelTime());
                 skifahrer.setWaitingNumber(0);
-                lastTrack.changePeopleOnTheTrack(lastTrack.getPeopleOnTheTrack() - 1);
-                logger?.AppendTask("4.4.1 Lift nehmen ");
+                lastTrack.changePeopleOnTheTrack(lastTrack.getPeopleOnTheTrack() - 1);                
             }
             else
             {
