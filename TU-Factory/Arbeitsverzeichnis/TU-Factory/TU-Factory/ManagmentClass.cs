@@ -21,26 +21,49 @@ namespace TU_Factory
             this.qualityManagment = QM;
         }
 
+
+
         public void addMachine(Machine M)
         {
             machines.Add(M);
             workingMachines.Add(M);
         }
 
+
+
         public void getStates()
         {
             allParts.ForEach(q => Console.WriteLine(q));
         }
 
+
+
+
+
         public void produce(int currentTime)
         {
+            foreach (Machine m in workingMachines)
+            {
+                if (currentTime >= m.getEndTime() /*&& !m.getInRepair()*/)
+                {
+                    m.setInUse(false);
+                    if (m.getCurrentPart() != null)
+                    {
+                        Part currentPart = m.getCurrentPart();
+                        currentPart.setPartFree();
+                        currentPart.deleteMachineStep();
+                        m.setCurrentPart(null);
+                        Console.WriteLine($"{m} ist jetzt wieder frei und bereit zum Bearbeiten neuer Teile.");
+                    }
+                }
+            }
             List<Part> tempFinishedParts = new List<Part>();
-            foreach (Part P in allParts)
+            foreach (Part P in openParts)
             {
                 if (P.getNumberOfOpenOperations() == 0)
                 {
                     P.setState(state.FertigesTeil);
-                    
+                    finishedParts.Add(P);
                     tempFinishedParts.Add(P);
                 }
             }
@@ -72,25 +95,11 @@ namespace TU_Factory
                         break;
                     }
                 }               
-            }
-            foreach (Machine m in workingMachines)          
-            {
-                if (currentTime >= m.getEndTime() && !m.getInRepair())
-                {
-                    m.setInUse(false);
-                    if (m.getCurrentPart() != null)
-                    {
-                        Part currentPart = m.getCurrentPart();
-                        currentPart.setPartFree();
-                        currentPart.deleteMachineStep();
-                        m.setCurrentPart(null);
-                        Console.WriteLine($"{m} ist jetzt wieder frei und bereit zum Bearbeiten neuer Teile.");
-                    }
-                }
-            }         
-  
-           
+            }            
         }
+
+
+
 
         public void readOrders()
         {
@@ -113,6 +122,9 @@ namespace TU_Factory
             }
         }
 
+
+
+
         public void sendToQualityCheck()
         {
             foreach (Part n in finishedParts)
@@ -120,6 +132,8 @@ namespace TU_Factory
                 qualityManagment.qualityCheck(n);
             }
         }
+
+
 
         public void simulatePossbibleError(int currentTime)
         {
@@ -149,9 +163,9 @@ namespace TU_Factory
             }
             tempMachineList.Clear();
             
-            foreach (Machine m in workingMachines)
+            foreach (Machine m in brokenMachines)
             {
-                if(currentTime >= m.getEndTime() && m.getInRepair())
+                if(currentTime >= m.getEndTime())
                 {
                     m.setInUse(false);
                     m.setInRpair(false);
@@ -168,13 +182,13 @@ namespace TU_Factory
             tempBrokenMachineList.Clear();
         }
 
+
+
         public void writeAllQualities()
         {
             Console.WriteLine("\n********************************");
-            allParts.ForEach(q => Console.WriteLine(q.ToString().PadRight(40,' ') + "Quality: " + q.getQuality().ToString()));
-        }
-        
-          
-        
+            //allParts.ForEach(q => Console.WriteLine(q.ToString().PadRight(40,' ') + "Quality: " + q.getQuality().ToString()));
+            allParts.ForEach(q => Console.WriteLine($"{q,-40}Quality: {q.getQuality():P4}"));
+        }          
     }
 }

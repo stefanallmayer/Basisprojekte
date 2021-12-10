@@ -32,5 +32,5 @@ namespace TU_Factory
             Console.ReadKey();
 
         }
-    }   //Problem: Bei Zeit=13 nimmt er Part 1 in die Fräsmaschine und nicht part2?
+    }   
 }
